@@ -3,11 +3,12 @@
 - [Summary](#summary)
   - [Basic functions \& methods](#basic-functions--methods)
   - [Basic exercise for beginners](#basic-exercise-for-beginners)
-  - [Python Input and Output Exercise](#python-input-and-output-exercise)
   - [Python if else, for loop, and range() Exercises](#python-if-else-for-loop-and-range-exercises)
   - [Python String Exercise](#python-string-exercise)
+  - [Python Function Exercise](#python-function-exercise)
   - [Python List Exercise with Solutions](#python-list-exercise-with-solutions)
   - [Python Set Exercise with Solutions](#python-set-exercise-with-solutions)
+  - [Learnning](#learnning)
   
 ## Basic functions & methods
 ```python
@@ -59,14 +60,47 @@ for i in range(1,10)
 .upper()
 .isdidget()
 .split()
-    - verwijderd hetgene tussen haakjes & geeft een list als output:
+    - verwijdert hetgene tussen haakjes & geeft een list als output:
     - ['Maarten'] i.p.v. ['M','a','a','r','t','e','n']
 ''.join(str_variable)
 
 #list
+
 .sort()
+#lijst permanent alfabetisch
+#reverse = True
+
+sorted()
+#lijst tijdelijk alfabetisch
+#reverse = True
+
+.reverse()
+#lijst tijdelijk reversed
+
 .append()
+#item toevoegen achteraan lijst
+
 .join()
+#lijsten samenvoegen
+
+.remove()
+#item verwijderen met index
+
+.insert()
+#item toevoegen met index
+
+.pop()
+#item verwijderen achteraan lijst
+
+len()
+#lengte v/d lijst bepalen
+
+del
+#lijst verwijderen
+
+range(x,y,z)
+#lijst aanmaken van x tot y met z-sprongen
+
 random.choice()
 
 
@@ -362,7 +396,7 @@ print(pow(num1,num2))
 
 
 ```
-## Python Input and Output Exercise
+f## Python Input and Output Exercise
 ```python
 
 
@@ -828,14 +862,7 @@ print(new_str1)
 
     
 ```
-def addition (n):
-    if n:
-        return n + addition(n - 1)
-    else:
-        return 0
-
-solution = addition(10)
-print(solution)## Python Function Exercise
+## Python Function Exercise
 ```python
 
 
@@ -887,6 +914,25 @@ print(result)
 
 
 #Exercise 6: Create a recursive function
+def addition (n):
+    if n:
+        return n + addition(n - 1)
+    else:
+        return 0
+
+solution = addition(10)
+print(solution)
+
+
+
+#Exercise 8: Generate a Python list of all the even numbers between 4 to 30
+print(list(range(4,30,2)))
+
+
+
+#Exercise 9: Find the largest item from a given list
+x = [4, 6, 8, 24, 12, 2]
+print(max(x))
 
 
 
@@ -1099,3 +1145,35 @@ set2 = {30, 40, 50, 60, 70}
 
 set1.intersection_update(set2)
 print(set1)
+
+
+```
+## Learnning
+```python
+
+frameworks: Flask, FastAPI, Django
+Kubernetes, Docker, CI/CD pipelines
+databases: SQL-, no SQL
+tools: GIT
+Github
+AWS cloud services & Linux
+NodeJS
+Essensium real time Positioning System for forklifts (EPS)
+Spark (PySpark)
+SysOps AWS infrastructure
+JIRA basedµ
+Rest, API, JsonWebsockets, MySQL, Postgres, SQL, AWS stack (S3, EC2, Lambdas, Redshift, Cloudwatch…), Docker, Kubernetes, Git
+Spark, NoSQL DBs, Kafka, ML
+Slack workflows
+SDK's
+threading, multi-processing and asynchronous programming
+functional and object oriented programming
+bus technologies (kafka, rabbit MQ)
+relational and non-relational DB (Postgres, Oracle, MongoDb …)
+DevOps (Jenkins, OpenShift), docker containers and version control
+version control tools, such as Git, Gitlab or SVN
+Azure OpenAI
+Proof of Concepts (POC's)
+windows = macos = linux
+Python, MySQL, Airflow, Minio, Apache spark, Open Metadata, Atlassian Bamboo, Docker
+Hive, Flink, Kafka, R, AWS en streaming data
