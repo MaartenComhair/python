@@ -101,6 +101,22 @@ del
 range(x,y,z)
 #lijst aanmaken van x tot y met z-sprongen
 
+set()
+#verwijdert duplicates
+
+
+
+
+#dict
+.keys()
+#geeft enkel key's weer
+
+.values()
+#geeft enkel value's weer
+
+.items()
+#geeft keys & value's weer
+
 random.choice()
 
 

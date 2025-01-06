@@ -1,10 +1,20 @@
-def get_location(city, country):
-    location = city + ', ' + country
-    return location
+class User:
 
-stad = input("In what city do you live? ")
-land = input("In what country do you live? ")
+    def __init__(self, first_name, last_name, gender, age):
 
-locatie = get_location(stad,land)
-print(locatie)
+        self.first_name = first_name
+        self.last_name = last_name
+        self.gender = gender
+        self.age = age
 
+    def greet_user(self):
+        print(F"Good evening {self.first_name} {self.last_name}, how are you?")
+    
+    def describe_user(self):
+        print(F"User is a {self.gender} and {self.age} years old.")
+    
+    
+
+gebruiker = User("Britt", "Nelissen", "female", "23")
+gebruiker.greet_user()
+gebruiker.describe_user()
