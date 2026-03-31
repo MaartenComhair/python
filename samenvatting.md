@@ -8,10 +8,14 @@
   - [Python Function Exercise](#python-function-exercise)
   - [Python List Exercise with Solutions](#python-list-exercise-with-solutions)
   - [Python Set Exercise with Solutions](#python-set-exercise-with-solutions)
+  - [Redemption arc](#Redemption-arc)
   - [Learnning](#learnning)
+
   
 ## Basic functions & methods
 ```python
+
+https://orgpad.info/s/sbwXdJ9N5wc
 
 list()
 str()
@@ -92,6 +96,18 @@ sorted()
 .pop()
 #item verwijderen achteraan lijst
 
+#convert str to list
+message = "hello there sam"
+words = message.split()
+print(words)
+# Prints: ["hello", "there", "sam"]
+
+#convert list to str
+list_of_words = ["hello", "there", "sam"]
+sentence = " ".join(list_of_words)
+print(sentence)
+# Prints: "hello there sam"
+
 len()
 #lengte v/d lijst bepalen
 
@@ -163,6 +179,21 @@ print(y)
 x["Apple"] = 20
 print(x)
 
+
+You can add the letter e or E followed by a positive or negative integer to specify that you're using scientific notation.
+print(16e3)
+# Prints 16000.0
+
+print(7.1e-2)
+# Prints 0.071
+
+
+You can write an integer in Python using binary syntax using the 0b prefix:
+print(0b0001)
+# Prints 1
+
+print(0b0101)
+# Prints 5
 
 
 
@@ -1161,6 +1192,609 @@ set2 = {30, 40, 50, 60, 70}
 
 set1.intersection_update(set2)
 print(set1)
+
+
+```
+## Redemption arc
+```python
+
+
+
+def become_warrior(full_name, power):
+    title = (F"{full_name} The warrior")
+    level_increase = power + 1
+    return title, level_increase
+
+naam, nummer = become_warrior("Maarten Comhair", 10)
+print(nummer)
+print(naam)
+
+
+###
+
+
+def get_hurt(current_health, damage):
+    dmg = damage
+    health = current_health
+    health -= dmg
+    return dmg, health
+
+x = input("How much hp did you have left?")
+y = input("How hard did you get wacked?")
+hp = get_hurt(int(x),int(y))
+
+if x >= y:
+    print("You died.")
+else:
+    print(f"You got wacked for a {hp[0]} and still have {hp[1]} hitpoints left")
+
+
+###
+
+
+def player_status(health):
+    if health <= 0:
+        print("You ded")
+    elif health <= 5:
+        print("You limpin")
+    else:
+        print("You a healthy boi")
+    return None
+x = player_status(6)
+print(x)
+
+
+###
+
+
+def check_high_score(player_name, high_scoring_player_name, low_scoring_player_name):
+    if player_name == high_scoring_player_name:
+        print("High")
+    elif player_name == low_scoring_player_name:
+        print("Low")
+    else:
+        print("neither")
+
+x = check_high_score("Maarten", "Maarten", "Dieter")
+print(x)
+
+
+###
+
+
+def combat_evaluation(player_power, enemy_defense):
+    advantage, disadvantage, evenly_matched = False, False, False
+
+    if player_power > enemy_defense:
+        advantage = True
+    elif player_power == enemy_defense:
+        evenly_matched = True
+    else:
+        disadvantage = True
+
+    return advantage, disadvantage, evenly_matched
+
+x = combat_evaluation(10,9)
+print(x)
+
+
+###
+
+
+def sum_of_odd_numbers(end):
+    total = 0
+    for i in range(1, end, 2):
+        total += i
+        print(i)
+    return total
+
+x = sum_of_odd_numbers(10)
+print(x)
+
+
+###
+
+
+def regenerate(current_health, max_health, enemy_distance):
+    while current_health < max_health and enemy_distance > 3:
+        current_health += 1
+        enemy_distance -= 2
+    return current_health, enemy_distance
+
+x = regenerate(10, 99, 30)
+print(x)
+
+
+###
+
+
+def award_enchantments(start, end, step):
+    counter = 0
+    for quest_number in range(start, end, step):
+        counter = counter + 1
+        
+        if counter == 3:
+            enchantment_strength = quest_number * 5
+            print(
+                f"Enchantment of strength {enchantment_strength} awarded for completing {quest_number} quests!"
+            )
+            counter = 0
+        else:
+            continue
+
+x = award_enchantments(1,11,1)
+print(x)
+
+
+###
+
+
+def countdown_to_start():
+    for i in range(10,0,-1):
+        if i == 1:
+            print("1... Fight!")
+            break
+        else:
+            print(F"{i}...")
+
+countdown_to_start()
+
+
+###
+
+
+def calculate_experience_points(level):
+    total_xp = 0
+    for i in range(1,level):
+        xp_per_level = i * 5
+        total_xp = total_xp + xp_per_level
+    print(total_xp)
+
+x = calculate_experience_points(6)
+print(x)
+
+
+###
+
+
+def meditate(mana, max_mana, num_potions):
+    while mana < max_mana and num_potions > 0:
+        mana += 1
+        num_potions -= 1
+    print(f"You have {mana} mana and {num_potions} potions left")
+
+x = meditate(30,99,15)
+print(x)
+
+
+###
+
+
+inv = [
+    "Healing Potion",
+    "Leather Scraps",
+    "Iron Helmet",
+    "Bread",
+    "Shortsword",
+    ]
+def get_last_index(inventory):
+    return inventory[len(inventory)-1]
+
+x = get_last_index(inv)
+print(x)
+
+
+###
+
+
+inventory = ["Leather", "Iron Ore", "Healing Potion"]
+
+def smelt_ore(inventory):
+    if inventory[1] == "Iron Ore":
+        inventory[1] = "Iron Bar"
+
+    return inventory
+
+smelt_ore(inventory)
+print(inventory)
+
+
+###
+
+
+def generate_user_list(num_of_users):
+    player_ids = []
+
+    for i in range(0, num_of_users):
+        player_ids.append(i)
+
+    return player_ids
+
+x = generate_user_list(10)
+print(x)
+
+
+###
+
+
+def clear_inventory():
+    inventory = [
+        "Healing Potion",
+        "Iron Bar",
+        "Kite Shield",
+        "Shortsword",
+        "Leather Scraps",
+        "Tattered Cloth",
+    ]
+
+    print(f"inventory: {inventory}")
+
+    # don't touch above this line
+
+    for i in range(0, len(inventory)):
+        item = inventory.pop()
+
+        # don't touch below this line
+        print(f"Selling: {item}")
+        print(f"inventory: {inventory}")
+
+
+def test():
+    clear_inventory()
+    print("=====================================")
+
+
+def main():
+    test()
+
+
+main()
+
+
+###
+
+
+items = ["potion", "sword", "Leather scraps", "cape"]
+
+def contains_leather_scraps(items):
+    found = False
+
+    # don't touch above this line
+
+    for item in items:
+        if item == "Leather scraps":
+            print(F"{item} found in inventory")
+            found = True
+            break
+        print(item)
+
+    # don't touch below this line
+
+    return found
+
+contains_leather_scraps(items)
+
+
+###
+
+
+def check_character_levels():
+    old_character_levels = [1, 42, 43, 53, 12, 3, 32, 34, 54, 32, 43]
+    new_character_levels = [1, 42, 45, 54, 12, 3, 32, 38, 54, 32, 42]
+
+    # don't touch above this line
+
+    for i in range(0, len(old_character_levels)):
+        if new_character_levels[i] > old_character_levels[i]:
+            print(i)
+        
+
+
+# don't touch below this line
+
+
+def test():
+    print("Character level increased at indexes:")
+    check_character_levels()
+    print("=====================================")
+
+
+def main():
+    test()
+
+
+main()
+
+
+###
+
+
+nums = [100, 10, 22, 107]
+
+def find_max(nums):
+    max_so_far = float("-inf")
+    for number in nums:
+        if len(nums) == 0:
+            break
+        else:
+            max_so_far = max(nums)
+    return max_so_far
+
+x = find_max(nums)
+print(x)
+
+
+###
+
+
+num = [1,2,3,4,5,6,7,8,9,]
+def get_odd_numbers(num):
+    odd_numbers = []
+
+    for i in range(0, len(num)):
+        # don't touch above this line
+        if num[i] % 2 != 0:
+            odd_numbers.append(num[i])
+
+
+    # don't touch below this line
+
+    return odd_numbers
+
+x = get_odd_numbers(num)
+print(x)
+
+
+###
+
+
+champs = ["Thrundar", "Morgate", "Gandolfo", "Thraine", "Norwad", "Gilforn"]
+
+def get_champion_slices(champions):
+    value_1 = champions[::2]
+    print(champions)
+    value_2 = champions[0:-1]
+    return value_1, value_2
+
+get_champion_slices(champs)
+
+
+###
+
+
+items = [1,2,3]
+
+def get_first_item(items):
+    if len(items) > 0:
+        return items[0]           
+    else:
+        return "ERROR"
+
+
+x = get_first_item(items)
+print(x)
+
+
+###
+
+
+lijst_1 = [1,2,3]
+lijst_2 = ['a', 'b', 'c', 'd']
+
+def reverse_list(lijst_1):
+    new_lijst_1 = []
+    new_lijst_1 = lijst_1[::-1]
+    
+    return new_lijst_1
+
+x = reverse_list(lijst_1)
+print(x)
+
+
+###
+
+
+#filter messages
+
+cases = [
+            "well dang it",
+            "dang the whole dang thing",
+            "kill that knight, dang it",
+            "get him!",
+            "donkey kong",
+            "oh come on, get them",
+            "run away from the dang baddies",
+        ]
+
+def filter_messages(messages):
+
+    filtered_messages = []
+    counts_dang_removed = []
+
+    sentence = " ".join(cases)
+    words = sentence.split()
+
+    good_words = []
+    dang_words = []
+    
+    for word in words:
+        if word == "dang":
+            dang_words.append(word)
+        else:
+            good_words.append(word)
+    
+    good_words_string = " ".join(good_words)
+    
+    filtered_messages.append(good_words_string)
+
+    counts_dang_removed.append(len(dang_words))
+
+    return filtered_messages, counts_dang_removed
+
+x,y = filter_messages(cases)
+print(x)
+print(y)
+
+
+###
+
+
+players = [
+            "Harry",
+            "Hermione",
+            "Ron",
+            "Ginny",
+            "Fred",
+            "Neville",
+            "Draco",
+            "Luna",
+            "Cho",
+            "Gregory",
+            "Lee",
+            "Michael",
+            "Lavender",
+            "Frank",
+            "Anthony",
+            "Allan",
+        ]
+
+
+def split_players_into_teams(players):
+    team_even = []
+    team_odd = []
+    for i in range(0,len(players)):
+        if i % 2 == 0:
+            team_even.append(players[i])
+        else:
+            team_odd.append(players[i])
+    
+    return team_even, team_odd
+
+team_a, team_b = split_players_into_teams(players)
+print(team_a)
+print(team_b)
+
+
+###
+
+
+players = [
+            "Harry",
+            "Hermione",
+            "Ron",
+            "Ginny",
+            "Fred",
+            "Neville",
+            "Draco",
+            "Luna",
+            "Cho",
+            "Gregory",
+            "Lee",
+            "Michael",
+            "Lavender",
+            "Frank",
+            "Anthony",
+            "Allan",
+        ]
+
+def split_players_into_teams(players):
+    even_team = players[:len(players):2]
+    odd_team = players[1:len(players):2]
+    return even_team, odd_team
+
+team_a, team_b = split_players_into_teams(players)
+print(team_a)
+print(team_b)
+print(players)
+
+
+###
+
+#Alchemy Ingredients
+recipe = ["Dragon Scale", "Unicorn Hair", "Phoenix Feather", "Troll Tusk"]
+ingredients = ["Dragon Scale", "Phoenix Feather", "Troll Tusk", "Troll Tusk"]
+
+def check_ingredient_match(recipe, ingredients):
+
+    correct_ingredients = []
+    ingredients_left = []
+
+    for ingredient in ingredients:
+        for item in recipe:
+            if ingredient == item and ingredient not in correct_ingredients:
+                correct_ingredients.append(ingredient)
+            elif item not in ingredients and item not in ingredients_left:
+                ingredients_left.append(item)
+            else:   
+                continue
+
+    percentage = len(correct_ingredients) / len(recipe)           
+
+    return percentage, ingredients_left
+
+percentage, ingredients_left = check_ingredient_match(recipe, ingredients)
+print(f"you have {percentage}% of the required ingredients in your bagg.")
+print(f"You still need the following ingredients: {ingredients_left}")
+
+
+###
+
+#Counting Practice dictionaries
+enemy_names = [
+            "jackal",
+            "kobold",
+            "jackal",
+            "kobold",
+            "soldier",
+            "kobold",
+            "soldier",
+            "soldier",
+            "jackal",
+            "jackal",
+            "gremlin",
+            "jackal",
+            "jackal",
+        ]
+
+def count_enemies(enemy_names):
+    enemies_dict = {}
+    for word in enemy_names:
+        enemies_dict[word] = enemies_dict.get(word, 0) + 1
+
+    return enemies_dict
+
+x = count_enemies(enemy_names)
+print(x)
+
+
+###
+
+#Sets
+spells = [
+            "fireball",
+            "eldritch blast",
+            "fireball",
+            "eldritch blast",
+            "chill touch",
+            "eldritch blast",
+            "chill touch",
+            "chill touch",
+            "fireball",
+            "fireball",
+            "shocking grasp",
+            "fireball",
+            "fireball",
+        ]
+
+
+
+def remove_duplicates(spells):
+    set_spells = set(spells)
+    list_unique_spells = list(set_spells)
+    return list_unique_spells
+
+unique_spells = remove_duplicates(spells)
+print(f"Your have unlocked following spells: {unique_spells}")
 
 
 ```
